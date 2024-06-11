@@ -4,7 +4,16 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+/**
+ * Main class where the magic happens.
+ */
 public class Main {
+    /**
+     * The main method where the simulation is executed.
+     *
+     * @param args command-line arguments
+     * @throws IOException if an I/O error occurs while writing to the CSV file
+     */
     public static void main(String[] args) throws IOException {
         PrintWriter csvWriter = new PrintWriter(new FileWriter("simulation_results.csv"));
         csvWriter.println("Hero;Apple Trees;Banana Trees;Wild Strawberry Trees;Max Points;Hero Points");
@@ -29,6 +38,6 @@ public class Main {
                 simHero.resetPoints();
             }
         }
-        csvWriter.close(); // Zamknięcie PrintWriter
+        csvWriter.close(); // Closing PrintWriter
     }
 }

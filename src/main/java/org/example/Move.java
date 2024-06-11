@@ -3,13 +3,21 @@ package org.example;
 import java.io.PrintWriter;
 
 import static java.lang.Math.abs;
-
+/**
+ * The Move class handles the movement and actions of a harvester on the map.
+ */
 public class Move {
     private Map map;
     private Harvester hero;
     private Tree[] trees;
     private PrintWriter csvWriter;
-
+    /**
+     * Constructs a new Move instance with the specified map, hero, and CSV writer.
+     *
+     * @param map       the map on which the hero moves
+     * @param hero      the hero performing the actions
+     * @param csvWriter the writer for logging results to a CSV file
+     */
     public Move(Map map, Harvester hero, PrintWriter csvWriter) {
         this.map = map;
         this.hero = hero;
@@ -20,7 +28,10 @@ public class Move {
                 new Tree("wild_strawberry_tree", 'W', 1000, 100, 1)
         };
     }
-
+    /**
+     * Executes the move by simulating the hero's actions on the map.
+     * The hero interacts with trees and earns points based on specific rules.
+     */
     public void execute() {
         char[][] mapArray = map.getMapArray();
         int mapSize = map.getMapSize();
