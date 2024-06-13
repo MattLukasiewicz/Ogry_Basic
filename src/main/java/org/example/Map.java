@@ -33,6 +33,7 @@ public class Map {
                 System.out.print(mapArray[i][j] + " ");
             }
             System.out.println();
+
         }
     }
     /**

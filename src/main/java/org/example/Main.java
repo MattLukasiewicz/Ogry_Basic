@@ -14,12 +14,12 @@ public class Main {
      * @param args command-line arguments
      * @throws IOException if an I/O error occurs while writing to the CSV file
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
         PrintWriter csvWriter = new PrintWriter(new FileWriter("simulation_results.csv"));
         csvWriter.println("Hero;Apple Trees;Banana Trees;Wild Strawberry Trees;Max Points;Hero Points");
 
         int howManySimulations = 10;
-        int mapDisplaySimulation = 0; // 1 display 0 no
+        int mapDisplaySimulation = 1; // 1 display 0 no
         int simulationMapSize = 5;
 
         Harvester[] heroes = {
@@ -36,6 +36,10 @@ public class Main {
                 Move moveSimulation = new Move(map, simHero, csvWriter);
                 moveSimulation.execute();
                 simHero.resetPoints();
+                // Sleep for 2 seconds after each hero's simulation
+                Thread.sleep(1000);
+
+
             }
         }
         csvWriter.close(); // Closing PrintWriter
